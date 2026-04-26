@@ -1,5 +1,6 @@
-import {NavLink, Outlet} from "react-router";
+import {NavLink} from "react-router";
 import "./AppLayout.css";
+import {Outlet} from "react-router/internal/react-server-client";
 
 export default function AppLayout(){
 return(<>
@@ -12,6 +13,9 @@ return(<>
             <nav>
                 <NavLink to={"/"} end>
                     Home
+                </NavLink>
+                <NavLink to={"/register"} end>
+                    Register
                 </NavLink>
             </nav>
         </header>

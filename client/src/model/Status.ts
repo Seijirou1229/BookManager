@@ -1,0 +1,1 @@
+export type Status ="WANT_TO_READ" | "READ"

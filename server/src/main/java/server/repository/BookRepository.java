@@ -12,8 +12,7 @@ public class BookRepository {
 
     public void createBook(Book book) {
         jdbcTemplate.update(
-                "insert into books (id, title, author, status, rating ) value(?,?,?,?,?)",
-                book.getId(),
+                "insert into books (title, author, status, rating ) value(?,?,?,?)",
                 book.getTitle(),
                 book.getAuthor(),
                 book.getStatus(),
