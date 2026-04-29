@@ -1,1 +1,1 @@
-rootProject.name = "seijirou_database_14272592"
+rootProject.name = "seijirou_database"
