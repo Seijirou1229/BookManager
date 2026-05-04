@@ -2,6 +2,7 @@ import "./BookList.css";
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import type Book from "../../model/Book.ts";
+import {format} from 'date-fns';
 
 
 export default function BookList() {
@@ -32,9 +33,11 @@ export default function BookList() {
                 </thead>
                 <tbody>
                 {books.map((book, i) => {
+                    const inputDateTime = book.input_date_time;
+                    const formattedInputDateTime = format(inputDateTime, 'yyyy/MM/dd HH:mm');
                     return (
                         <tr key={i}>
-                            <th>{book.input_date_time.toLocaleDateString()}</th>
+                            <th>{formattedInputDateTime}</th>
                             <th>{book.title}</th>
                             <th>{book.author}</th>
                             <th>{book.status.toString()}</th>

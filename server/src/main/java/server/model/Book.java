@@ -7,6 +7,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -29,6 +31,27 @@ public class Book {
     private int rating;
 
     private String comment;
+
+    private LocalDateTime input_date_time;
+
+    private LocalDateTime updated_date_time;
+
+
+    public LocalDateTime getInput_date_time() {
+        return input_date_time;
+    }
+
+    public void setInput_date_time(LocalDateTime input_date_time) {
+        this.input_date_time = input_date_time;
+    }
+
+    public LocalDateTime getUpdated_date_time() {
+        return updated_date_time;
+    }
+
+    public void setUpdated_date_time(LocalDateTime updated_date_time) {
+        this.updated_date_time = updated_date_time;
+    }
 
     public String getComment() {
         return comment;

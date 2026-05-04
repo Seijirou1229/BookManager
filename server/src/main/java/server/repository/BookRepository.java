@@ -1,12 +1,17 @@
 package server.repository;
 
-import org.hibernate.type.descriptor.jdbc.AdjustableJdbcType;
+import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import server.model.Book;
 
+import java.util.List;
+
 @Repository
 public class BookRepository {
+
+    private final RowMapper<Book> mapper = new DataClassRowMapper<>(Book.class);
 
     private JdbcTemplate jdbcTemplate;
 
@@ -33,5 +38,9 @@ public class BookRepository {
                     book.getComment()
             );
         }
+    }
+
+    public List<Book> getBooks() {
+        return jdbcTemplate.query("SELECT * FROM books", mapper);
     }
 }
