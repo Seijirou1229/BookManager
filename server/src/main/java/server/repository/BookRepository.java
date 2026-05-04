@@ -10,13 +10,19 @@ public class BookRepository {
 
     private JdbcTemplate jdbcTemplate;
 
+    public BookRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     public void createBook(Book book) {
+        System.out.println(book);
         jdbcTemplate.update(
-                "insert into books (title, author, status, rating ) value(?,?,?,?)",
+                "INSERT INTO books (title, author, status, rating, comment) VALUES(?,?,?,?,?)",
                 book.getTitle(),
                 book.getAuthor(),
-                book.getStatus(),
-                book.getRating()
+                book.getStatus().toString(),
+                book.getRating(),
+                book.getComment()
         );
     }
 }

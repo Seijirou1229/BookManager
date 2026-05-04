@@ -22,7 +22,6 @@ public class Book {
     @NotNull
     private String author;
 
-    @NotBlank
     @NotNull
     @Enumerated(EnumType.STRING)
     private Status status;
@@ -30,6 +29,17 @@ public class Book {
     @Min(0)
     @Max(5)
     private int rating;
+
+
+    private String comment;
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 
     public Long getId() {
         return id;

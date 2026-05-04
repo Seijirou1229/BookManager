@@ -45,6 +45,7 @@ export default function BookRegistration() {
             }
         ).then(async (response: Response) => {
             if (!response.ok) {
+                console.log(requestBody);
                 console.log("Error!!!")
             } else {
                 navigate("/");
@@ -79,8 +80,8 @@ export default function BookRegistration() {
                         </div>
                         <div>
                             <select name="status" id="status" value={status} onChange={isREADHandler} required={true}>
-                                <option value="READ">READ</option>
                                 <option value="WANT TO READ">WANT TO READ</option>
+                                <option value="READ">READ</option>
                             </select>
                         </div>
                     </div>
