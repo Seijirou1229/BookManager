@@ -4,6 +4,7 @@ import AppLayout from './pages/AppLayout.tsx'
 import {BrowserRouter, Route, Routes} from "react-router";
 import App from "./App.tsx";
 import BookRegistration from "./pages/books/BookRegistration.tsx";
+import "./main.css";
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

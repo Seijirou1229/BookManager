@@ -9,7 +9,7 @@ export default function BookRegistration() {
     const [status, setStatus] = useState<string>("");
     const [rating, setRating] = useState<number>(0);
 
-    // If status is read, make rating enable.
+    // If status is "WANT_TO_READ", make rating 0. If the status is "READ", set setIsREAD true.
     const isREADHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         const status = (e.target.value);
         setStatus(status);
@@ -22,8 +22,8 @@ export default function BookRegistration() {
     }
 
     const ratingHandler = (e: ChangeEvent<HTMLInputElement>) => {
-            const rating:number = (e.target.valueAsNumber);
-            setRating(rating);
+        const rating: number = (e.target.valueAsNumber);
+        setRating(rating);
     }
 
     const submitHandler: SubmitEventHandler<HTMLFormElement> = (event) => {
@@ -58,30 +58,53 @@ export default function BookRegistration() {
                 <form onSubmit={submitHandler} className={"input-container"}>
                     <p>Enter the book's information</p>
                     <div>
-                        <label htmlFor="title">Title</label>
-                        <input type="text" name={"title"} id={"title"} required={true}/>
+                        <div>
+                            <label htmlFor="title">Title</label>
+                        </div>
+                        <div>
+                            <input type="text" name={"title"} id={"title"} required={true}/>
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="author">Author</label>
-                        <input type="text" name={"author"} id={"author"}/>
+                        <div>
+                            <label htmlFor="author">Author</label>
+                        </div>
+                        <div>
+                            <input type="text" name={"author"} id={"author"}/>
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="status">Status</label>
-                        <select name="status" id="status" value={status} onChange={isREADHandler} required={true}>
-                            <option value="READ">READ</option>
-                            <option value="WANT TO READ">WANT TO READ</option>
-                        </select>
+                        <div>
+                            <label htmlFor="status">Status</label>
+                        </div>
+                        <div>
+                            <select name="status" id="status" value={status} onChange={isREADHandler} required={true}>
+                                <option value="READ">READ</option>
+                                <option value="WANT TO READ">WANT TO READ</option>
+                            </select>
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="rating">Rating</label>
-                        <input type="number" name={"rating"} id={"rating"} min={1} max={5} disabled={!isREAD} value={rating} onChange={ratingHandler}/>
+                        <div>
+                            <label htmlFor="rating">Rating</label>
+                        </div>
+                        <div>
+                            <input type="number" name={"rating"} id={"rating"} min={1} max={5} disabled={!isREAD}
+                                   value={rating} onChange={ratingHandler}/>
+                        </div>
                     </div>
                     <div>
-                        <label htmlFor="comment">Comment</label>
-                        <input type="text" name={"comment"} id={"comment"}/>
+                        <div>
+                            <label htmlFor="comment">Comment</label>
+                        </div>
+                        <div>
+                            <input type="text" name={"comment"} id={"comment"}/>
+                        </div>
                     </div>
                     <div>
-                        <input type="submit" value="Submit"/>
+                        <div>
+                            <input type="submit" value="Submit"/>
+                        </div>
                     </div>
                 </form>
             </div>
