@@ -2,12 +2,11 @@ package server.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import server.model.Book;
 import server.service.BookService;
+
+import java.util.List;
 
 @RequestMapping("/api/books")
 @RestController
@@ -22,6 +21,11 @@ public class BookController {
     @PostMapping
     public void createBook(@RequestBody @Valid Book book) {
         bookService.createBook(book);
+    }
+
+    @GetMapping
+    public List<Book> getBooks(){
+        return bookService.getBooks();
     }
 
 }

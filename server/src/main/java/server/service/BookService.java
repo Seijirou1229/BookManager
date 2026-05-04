@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import server.model.Book;
 import server.repository.BookRepository;
 
+import java.util.List;
+
 @Service
 public class BookService {
 
@@ -17,4 +19,7 @@ public class BookService {
         bookRepository.createBook(book);
     }
 
+    public List<Book> getBooks() {
+        return bookRepository.getBooks();
+    }
 }
