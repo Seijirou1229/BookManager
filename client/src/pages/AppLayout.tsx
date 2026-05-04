@@ -15,6 +15,9 @@ export default function AppLayout() {
                         <NavLink to={"/register"} end className={"nav-nav"}>
                             Register
                         </NavLink>
+                        <NavLink to={"/list"} end className={"nav-nav"}>
+                            List
+                        </NavLink>
                     </nav>
             </header>
             <main>
