@@ -15,14 +15,25 @@ public class BookRepository {
     }
 
     public void createBook(Book book) {
-        System.out.println(book);
-        jdbcTemplate.update(
-                "INSERT INTO books (title, author, status, rating, comment) VALUES(?,?,?,?,?)",
-                book.getTitle(),
-                book.getAuthor(),
-                book.getStatus().toString(),
-                book.getRating(),
-                book.getComment()
-        );
+        System.out.println(book.getAuthor().isEmpty());
+        System.out.println(book.getAuthor().isBlank());
+        if (book.getAuthor().isBlank()) {
+            jdbcTemplate.update(
+                    "INSERT INTO books (title, status, rating, comment) VALUES(?,?,?,?)",
+                    book.getTitle(),
+                    book.getStatus().toString(),
+                    book.getRating(),
+                    book.getComment()
+            );
+        } else {
+            jdbcTemplate.update(
+                    "INSERT INTO books (title, author, status, rating, comment) VALUES(?,?,?,?,?)",
+                    book.getTitle(),
+                    book.getAuthor(),
+                    book.getStatus().toString(),
+                    book.getRating(),
+                    book.getComment()
+            );
+        }
     }
 }

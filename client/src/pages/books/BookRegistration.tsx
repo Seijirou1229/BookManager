@@ -33,7 +33,7 @@ export default function BookRegistration() {
             title: formData.get("title"),
             author: formData.get("author"),
             status: formData.get("status"),
-            rating: formData.get("rating"),
+            rating: rating,
             comment: formData.get("comment")
         };
         fetch(`${import.meta.env.VITE_REST_HOST}/api/books`, {
@@ -80,7 +80,7 @@ export default function BookRegistration() {
                         </div>
                         <div>
                             <select name="status" id="status" value={status} onChange={isREADHandler} required={true}>
-                                <option value="WANT TO READ">WANT TO READ</option>
+                                <option value="WANT_TO_READ">WANT TO READ</option>
                                 <option value="READ">READ</option>
                             </select>
                         </div>

@@ -18,8 +18,6 @@ public class Book {
     @NotNull
     private String title;
 
-    @NotBlank
-    @NotNull
     private String author;
 
     @NotNull
@@ -29,7 +27,6 @@ public class Book {
     @Min(0)
     @Max(5)
     private int rating;
-
 
     private String comment;
 
