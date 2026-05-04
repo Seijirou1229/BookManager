@@ -3,10 +3,10 @@ CREATE TABLE books (
                        title VARCHAR(225) NOT NULL,
                        author VARCHAR(225) NOT NULL DEFAULT 'Unknown',
                        status VARCHAR(20) NOT NULL,
-                       rating INTEGER NOT NULL,
+                       rating INTEGER NOT NULL DEFAULT (0),
                        input_date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(),
                        updated_date_time TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT now(),
-                       comment TEXT,
+                       comment TEXT, --nullable
                        CONSTRAINT check_status -- CHECK constraint
                            CHECK (status IN ('WANT_TO_READ', 'READ'))
 );
